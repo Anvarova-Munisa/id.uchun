@@ -29,16 +29,6 @@ def button():
         request_username = True,
         request_photo = True,
 
-
-        # chat_is_channel=False,
-        # chat_is_forum=False,
-        # chat_has_username=False,
-        # chat_is_created=False,
-        # request_title=True,
-        # bot_is_member=True,
-        # request_username=True,
-        # request_photo=True,
-
     ))
     b.button(text="channels", request_chat=KeyboardButtonRequestChat(
         request_id=4,
