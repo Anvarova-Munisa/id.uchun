@@ -1,6 +1,4 @@
 from datetime import datetime, timedelta
-from tokenize import group
-
 from aiogram import Router, types
 
 router = Router()
@@ -26,6 +24,8 @@ router = Router()
 #              n +=f"ID: {idlar[i]}\n\n"
 #              n += f"sana va vaqt: {vaqt}"
 #              await msg.answer(n)
+
+
 @router.message()
 async def button(msg: types.Message):
     vaqt = (datetime.now() + timedelta(hours=5)).strftime("%Y-%m-%d %H:%M:%S")
@@ -48,14 +48,11 @@ async def button(msg: types.Message):
             n += f"sana va vaqt: {vaqt}"
             await msg.answer(n)
 
-    # 2. GROUPS UCHUN (request_id=3 bo'lganda)
     elif msg.chat_shared and msg.chat_shared.request_id == 3:
-        # chat_shared bitta guruh qaytargani uchun uni ro'yxatga olamiz
         groups = [msg.chat_shared]
         ismlar, familyalar, usernamalar, idlar = [], [], [], []
         son = 0
         for group in groups:
-            # Guruh/Kanal nomi 'title' ichida keladi (first_name bo'lmaydi)
             ismlar.append("Guruh")
             familyalar.append("")
             usernamalar.append("yo'q")
@@ -70,9 +67,7 @@ async def button(msg: types.Message):
             n += f"sana va vaqt: {vaqt}"
             await msg.answer(n)
 
-    # 3. CHANNELS UCHUN (request_id=4 bo'lganda)
     elif msg.chat_shared and msg.chat_shared.request_id == 4:
-        # chat_shared bitta kanal qaytargani uchun uni ro'yxatga olamiz
         chanels = [msg.chat_shared]
         ismlar, familyalar, usernamalar, idlar = [], [], [], []
         son = 0
@@ -90,3 +85,5 @@ async def button(msg: types.Message):
             n += f"ID: {idlar[i]}\n\n"
             n += f"sana va vaqt: {vaqt}"
             await msg.answer(n)
+
+
