@@ -21,21 +21,11 @@ async def oddiy(callback:types.CallbackQuery):
 #     await callback.answer(" nasib qilsin")
 
 
-
-
 @router.callback_query(F.data == "car")
-async def car_callback(callback: types.CallbackQuery):
+async def car2(callback: types.CallbackQuery):
     await callback.answer()
-    await callback.message.edit_text(
-        text="Mashinalardan birini tanlang:",
-        reply_markup=car()
-    )
-
+    await callback.message.edit_text("Mashinalardan birini tanlang", reply_markup=car())
 @router.callback_query(F.data.startswith("tanlandi_"))
-async def tanlandi2(callback: types.CallbackQuery):
-    await callback.answer()
+async def tanlandi1(callback: types.CallbackQuery):
     car_name = callback.data.replace("tanlandi_", "")
-
-    await callback.message.edit_text(
-        text=f"{car_name.capitalize()} nasib qilsin!"
-    )
+    await callback.answer(f"{car_name.capitalize()} nasib qilsin!", show_alert=True)
