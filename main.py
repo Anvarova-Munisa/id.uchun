@@ -7,6 +7,8 @@ from handlers.users.start import router as start_router
 from handlers.users.help import router as help_router
 from handlers.users.button import router as button_router
 from config.settings import BOT_TOKEN
+from handlers.users.tugma import router as tugma
+
 
 dp = Dispatcher()
 
@@ -17,7 +19,8 @@ async def main():
 
     dp.include_router(start_router)
     dp.include_router(help_router)
-    dp.include_router(button_router)
+    # dp.include_router(button_router)
+    dp.include_router(tugma)
 
     print("Bot ishga tushdi")
     await dp.start_polling(bot)
