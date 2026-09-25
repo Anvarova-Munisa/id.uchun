@@ -21,6 +21,15 @@ async def oddiy(callback:types.CallbackQuery):
 #     await callback.answer(" nasib qilsin")
 
 
+# @router.callback_query(F.data == "car")
+# async def car2(callback: types.CallbackQuery):
+#     await callback.answer()
+#     await callback.message.edit_text("Mashinalardan birini tanlang", reply_markup=car())
+# @router.callback_query(F.data.startswith("tanlandi_"))
+# async def tanlandi1(callback: types.CallbackQuery):
+#     car_name = callback.data.replace("tanlandi_", "")
+#     await callback.answer(f"{car_name.capitalize()} nasib qilsin!", show_alert=True)
+
 @router.callback_query(F.data == "car")
 async def car2(callback: types.CallbackQuery):
     await callback.answer()
@@ -28,4 +37,4 @@ async def car2(callback: types.CallbackQuery):
 @router.callback_query(F.data.startswith("tanlandi_"))
 async def tanlandi1(callback: types.CallbackQuery):
     car_name = callback.data.replace("tanlandi_", "")
-    await callback.answer(f"{car_name.capitalize()} nasib qilsin!", show_alert=True)
+    await callback.answer(f"{car_name.capitalize()} nasib qilsin!")
