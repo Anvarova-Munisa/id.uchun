@@ -41,3 +41,19 @@ def car():
         b.button(text=car.capitalize(),callback_data=f"tanlandi_{car}")
         b.adjust(3)
     return b.as_markup()
+
+ranglar = ["oq","qora","qizil","kok","sariq","yashil"]
+def rang():
+    b = InlineKeyboardBuilder()
+    for r in ranglar:
+        b.button(text=r.capitalize(),callback_data=f"rang{r}")
+        b.adjust(3)
+    return b.as_markup()
+def tasdiqlash():
+    b = InlineKeyboardBuilder()
+    b.button(text="Ha, buyurtma beraman", callback_data="ha")
+    b.button(text="Yo'q, bermayman", callback_data="yoq")
+    b.button(text="Shunchaki qziqib kirgandim", callback_data="senga nma")
+    b.adjust(3)
+    return b.as_markup()
+
