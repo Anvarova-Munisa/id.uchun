@@ -34,14 +34,32 @@ def tugma():
 
     b.adjust(3)
     return b.as_markup(resize_keyboard=True)
-cars = ["cobalt","lasetti","BMW","tiko","damas","nexia"]
+# cars = ["cobalt","lasetti","BMW","tiko","damas","nexia"]
+# def car():
+#     b = InlineKeyboardBuilder()
+#     for car in cars:
+#         b.button(text=car.capitalize(),callback_data=f"tanlandi_{car}")
+#         b.adjust(3)
+#     return b.as_markup()
+
+cars = {
+    "cobalt": 180000000,
+    "lasetti": 150000000,
+    "bmw": 450000000,
+    "tiko": 90000000,
+    "damas": 120000000,
+    "nexia": 200000000,
+}
+
 def car():
     b = InlineKeyboardBuilder()
-    for car in cars:
-        b.button(text=car.capitalize(),callback_data=f"tanlandi_{car}")
-        b.adjust(3)
+    for car_name, narx in cars.items():
+        b.button(
+            text=f"{car_name.capitalize()} - {narx:,} so'm",
+            callback_data=f"tanlandi_{car_name}"
+        )
+    b.adjust(2)
     return b.as_markup()
-
 ranglar = ["oq","qora","qizil","kok","sariq","yashil"]
 def rang():
     b = InlineKeyboardBuilder()
