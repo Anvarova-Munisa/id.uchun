@@ -1,6 +1,8 @@
-from aiogram import Router,types,filters
+from aiogram import Router, types, F
+
 router = Router()
-@router.message()
-async def test(msg: types.Message):
-   if msg.voice:
-       print(msg.voice.file_id)
+
+
+@router.message(F.voice)
+async def voice(message: types.Message):
+    await message.answer(message.voice.file_id)
