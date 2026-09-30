@@ -1,14 +1,14 @@
-from aiogram import Router, types, F
+from aiogram import Router, types
 
 router = Router()
 joylar = [
-    ["sultonobod","40.657167,70.991415"],
-    ["Qoqon","40.709854,71.082544"],
-    ["Sultonobod2","40.656632,70.991469"],
+   ["Sulton obod",40.657167,70.991415],
+    ["Qoqon",40.709854,71.082544],
+   ["Sultonobod",40.656632,70.991469],
 ]
 
 
-@router.inline_query(F.query == "location")
+@router.inline_query()
 async def location(query: types.InlineQuery):
     results = []
     i = 1
@@ -16,7 +16,7 @@ async def location(query: types.InlineQuery):
         results.append(
             types.InlineQueryResultLocation(
                 id=str(i),
-                title=f"joylashuv: {nom}",
+                title=f"Joylashuv: {nom}",
                 latitude=lat,
                 longitude=lon,
             )

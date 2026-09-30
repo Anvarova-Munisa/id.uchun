@@ -8,13 +8,18 @@ ovozlar = [
     "AwACAgQAAxkBAAIBC2q7xm-xj8m87ohLUBQu9ANP74GnAAIWGQAC9lJoUkpJIZCFhKjCPQQ",
     "AwACAgQAAxkBAAIBDWq7xqFjK_ppxdumTdoILt9dE1bSAAJlQQAC6avxU2JV6LVVecvCPQQ",
 ]
+
 @router.inline_query()
 async def voice(query: types.InlineQuery):
-    result = [
-        types.InlineQueryResultVoice(
-            id="1",
-            voice_url=ovozlar[0],
-            title="assalomu a",
+    results = []
+    i = 1
+    for file_id in ovozlar:
+        results.append(
+            types.InlineQueryResultCachedVoice(
+                id=str(i),
+                voice_file_id=file_id,
+                title=f"Ovoz {i}",
+            )
         )
-
-    ]
+        i = i + 1
+    await query.answer(results=results, cache_time=1, is_personal=True)

@@ -1,4 +1,4 @@
-from aiogram import Router, types, F
+from aiogram import Router, types
 
 router = Router()
 kontaktlar = [
@@ -8,7 +8,7 @@ kontaktlar = [
 ]
 
 
-@router.inline_query(F.query == "contact")
+@router.inline_query()
 async def contact(query: types.InlineQuery):
     results = []
     i = 1

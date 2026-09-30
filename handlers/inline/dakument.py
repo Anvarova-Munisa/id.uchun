@@ -1,4 +1,4 @@
-from aiogram import Router, types, F
+from aiogram import Router, types
 
 router = Router()
 hujjatlar = [
@@ -11,7 +11,7 @@ hujjatlar = [
 ]
 
 
-@router.inline_query(F.query == "document")
+@router.inline_query()
 async def document(query: types.InlineQuery):
     results = []
     i = 1

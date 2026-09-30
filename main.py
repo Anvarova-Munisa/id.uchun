@@ -32,14 +32,14 @@ async def main():
     dp.include_router(help_router)
     # dp.include_router(button_router)
     # dp.include_router(tugma)
-    # dp.include_router(photo)
+    dp.include_router(photo)
     # dp.include_router(gif_router)
-    dp.include_router(dakument)
-    dp.include_router(contact)
-    dp.include_router(location)
-    dp.include_router(audio)
-    dp.include_router(video)
-    dp.include_router(voice)
+    # dp.include_router(dakument)
+    # dp.include_router(contact)
+    # dp.include_router(location)
+    # dp.include_router(audio)
+    # dp.include_router(video)
+    # dp.include_router(voice)
 
 
 

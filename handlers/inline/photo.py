@@ -30,8 +30,3 @@ async def photo(query: types.InlineQuery):
             )
             i = i + 1
         await query.answer(results=results, cache_time=1, is_personal=True)
-#
-# from aiogram import F
-# @router.message(F.photo)
-# async def get_file_id(message: types.Message):
-#     await message.answer(message.photo[-1].file_id)

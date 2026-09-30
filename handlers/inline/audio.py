@@ -1,4 +1,4 @@
-from aiogram import Router, types, F
+from aiogram import Router, types
 
 router = Router()
 audiolar = [
@@ -11,7 +11,7 @@ audiolar = [
 ]
 
 
-@router.inline_query(F.query == "audio")
+@router.inline_query()
 async def audio(query: types.InlineQuery):
     results = []
     i = 1
